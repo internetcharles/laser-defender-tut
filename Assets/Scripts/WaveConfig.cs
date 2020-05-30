@@ -7,15 +7,24 @@ using UnityEngine;
 public class WaveConfig : ScriptableObject
 {
 
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private GameObject pathPrefab;
-    [SerializeField] private float timeBetweenSpawns = 0.5f;
-    [SerializeField] private float spawnRandomFactor = 0.3f;
-    [SerializeField] private int numberOfEnemies = 5;
-    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] public GameObject enemyPrefab;
+    [SerializeField] public GameObject pathPrefab;
+    [SerializeField] public float timeBetweenSpawns = 0.5f;
+    [SerializeField] public float spawnRandomFactor = 0.3f;
+    [SerializeField] public int numberOfEnemies = 5;
+    [SerializeField] public float moveSpeed = 2f;
 
     public GameObject GetEnemyPrefab() { return enemyPrefab; }
-    public GameObject GetPathPrefab() { return pathPrefab; }
+
+    public List<Transform> GetWaypoints()
+    {
+        var waveWaypoints = new List<Transform>();
+        foreach (Transform child in pathPrefab.transform)
+        {
+            waveWaypoints.Add(child);
+        }
+        return waveWaypoints;
+    }
     public float GetTimeBetweenSpawns() { return timeBetweenSpawns; }
     public float GetSpawnRandomFactor() { return spawnRandomFactor; }
     public int GetNumberOfEnemies() { return numberOfEnemies; }
