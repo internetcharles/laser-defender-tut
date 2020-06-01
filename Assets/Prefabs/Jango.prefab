@@ -115,6 +115,9 @@ MonoBehaviour:
   enemyProjectileSpeed: 16
   projectile: {fileID: 5199882991653946207, guid: c89895bb084824a4092f16db10755ddc,
     type: 3}
+  deathVFX: {fileID: 8011646623687408988, guid: ff46e0c77ca1ff747a00c82b8906e906,
+    type: 3}
+  explosionDuration: 1
 --- !u!58 &8434666493694409101
 CircleCollider2D:
   m_ObjectHideFlags: 0
