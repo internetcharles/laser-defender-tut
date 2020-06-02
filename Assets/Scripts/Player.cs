@@ -84,8 +84,15 @@ public class Player : MonoBehaviour
         AudioSource.PlayClipAtPoint(playerHitSound, Camera.main.transform.position, shootSoundVolume);
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
+
         }
+    }
+
+    private void Die()
+    {
+        FindObjectOfType<Level>().LoadGameOver();
+        Destroy(gameObject);
     }
 
 

@@ -78,5 +78,6 @@ public class Enemy : MonoBehaviour
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, explosionDuration);
         AudioSource.PlayClipAtPoint(enemyDeathSound, Camera.main.transform.position, deathSoundVolume);
+        FindObjectOfType<GameSession>().AddToScore(100);
     }
 }
