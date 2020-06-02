@@ -6,6 +6,7 @@ using System.Numerics;
 using System.Security.Cryptography;
 using System.Xml.Schema;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -22,6 +23,12 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject laserPrefab = default;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileFiringPeriod = 1f;
+
+    [Header("SFX")] 
+    [SerializeField] private AudioClip playerShootSound = default;
+    [SerializeField] private AudioClip playerHitSound = default;
+    [SerializeField] [Range(0f, 1f)] private float shootSoundVolume = 0.5f;
+    
 
 
     private Coroutine firingCoroutine;
@@ -55,6 +62,7 @@ public class Player : MonoBehaviour
         {
             GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            AudioSource.PlayClipAtPoint(playerShootSound, Camera.main.transform.position, shootSoundVolume);
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }
@@ -73,6 +81,7 @@ public class Player : MonoBehaviour
     {
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
+        AudioSource.PlayClipAtPoint(playerHitSound, Camera.main.transform.position, shootSoundVolume);
         if (health <= 0)
         {
             Destroy(gameObject);

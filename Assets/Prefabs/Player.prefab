@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4805609068147304320}
   - component: {fileID: 4805609068147304323}
   - component: {fileID: 4805609068147304322}
-  - component: {fileID: -2981399784043567994}
   - component: {fileID: -1283806668154745885}
+  - component: {fileID: 404808628}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -96,34 +96,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7884a432688fb4e8d88ecb3fc8f7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 12
   padding: 1
   health: 300
   laserPrefab: {fileID: 5199882991653946207, guid: 30bb50300e596e54e99489a23c9e91af,
     type: 3}
-  projectileSpeed: 10
-  projectileFiringPeriod: 0.2
---- !u!50 &-2981399784043567994
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4805609068147304333}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  projectileSpeed: 15
+  projectileFiringPeriod: 0.05
+  playerShootSound: {fileID: 8300000, guid: 36ece80b760a03242874a74fb7a7ffba, type: 3}
+  playerHitSound: {fileID: 8300000, guid: a586f9d912c8e0e4b8bf88eaed35791d, type: 3}
+  shootSoundVolume: 0
 --- !u!60 &-1283806668154745885
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -165,3 +147,24 @@ PolygonCollider2D:
       - {x: 0.255, y: -0.285}
       - {x: 0.45499998, y: -0.265}
       - {x: 0.49499997, y: -0.255}
+--- !u!50 &404808628
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4805609068147304333}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
