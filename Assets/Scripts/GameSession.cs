@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameSession : MonoBehaviour
 {
     int score = 0;
+    int health = 300;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,16 @@ public class GameSession : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public void SubtractFromHealth(int damage)
+    {
+        health -= damage;
     }
 
     public void AddToScore(int points)

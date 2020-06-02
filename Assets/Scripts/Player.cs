@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     [Header("Player")]
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 1f;
-    [SerializeField] private int health = 200;
+    [SerializeField] private int health = 300;
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab = default;
@@ -82,6 +82,7 @@ public class Player : MonoBehaviour
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
         AudioSource.PlayClipAtPoint(playerHitSound, Camera.main.transform.position, shootSoundVolume);
+        FindObjectOfType<GameSession>().SubtractFromHealth(100);
         if (health <= 0)
         {
             Die();
